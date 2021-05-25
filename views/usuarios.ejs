@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Usuários</title>
+</head>
+
+<body>
+    <header>
+
+    </header>
+
+    <main class="container">
+        <div>
+            <h1>Lista de usuários</h1>
+            <form action="/users/search" method="GET">
+                <input type="text" placeholder="Pesquise" name="key">
+                <button class="btn btn-primary" type="submit">Buscar</button>
+                <a href="/users/cadastro" class="btn btn-secondary">Cadastrar</a>
+
+
+            </form>
+        </div>
+
+        <h1>Tabela do Usuários</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% users.forEach((user) => { %>
+                    <tr>
+                        <th scope="row">
+                            <%= user.id %>
+                        </th>
+                        <th>
+                            <%= user.nome%>
+                        </th>
+                        <th>
+                            <a href="/users/ver/<%=user.id%>" class="btn btn-info">Ver dados</a>
+                            <a href="/users/editar/<%=user.id%>" class="btn btn-warning">Editar dados</a>
+                            <form action="/users/deletar/<%=user.id%>?_method=DELETE" method="post">
+                                <button type="submit" class="btn btn-danger">Excluir</button>
+                            </form>
+                        </th>
+                    </tr>
+                    <%  }) %>
+            </tbody>
+        </table>
+        <nav arial-label="Page navegation example">
+            <ul class="pagination">
+                <% for (let nrPage = 1 ; nrPage <= totalPagina; nrPage++){ %>
+                    <li class="page-item">
+                        <a class="page-link" href="?page= <%= nrPage %> ">
+                            <%= nrPage %>
+                        </a>
+                    </li>
+                    <% } %>
+            </ul>
+        </nav>
+    </main>
+</body>
+
+</html>
