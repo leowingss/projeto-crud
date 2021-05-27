@@ -13,5 +13,11 @@ module.exports = (sequelize, DataType) => {
         timestamps: false
     })
 
+    Categoria.associate = (lista) => {
+        Categoria.hasMany(lista.Produto, {
+            foreignKey: 'fk_categoria',
+            as: 'produtos'
+        })
+    }
     return Categoria
 }

@@ -1,16 +1,25 @@
 const Sequelize = require('sequelize');
-const config = require('../database/config')
+// const config = require('../database/config')
 const { Produto, Categoria } = require('../database/models')
 
 const CategoriaController = {
-    index: async (req,res) =>{
+    index: async(req, res) => {
         const categorias = await Categoria.findAll()
-        return res.render('categorias', {categorias})
+        return res.render('categorias', { categorias })
     },
-    showProducts: async (req,res) => {
-        const {id} = req.params
-
-        return res.render ('produtosCategorias')
+    showProducts: async(req, res) => {
+        const { id } = req.params
+        const categoria = await Categoria.findOne({
+            where: {
+                id_categoria: id
+            },
+            include: {
+                model: Produto,
+                as: 'produtos',
+                required: true
+            }
+        })
+        return res.render('produtosCategorias', { categoria })
     }
 }
 
