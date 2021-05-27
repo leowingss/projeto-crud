@@ -5,7 +5,8 @@
     <title>
         <%= title %>
     </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 </head>
 
 <body>
@@ -15,7 +16,9 @@
     <p>Welcome to
         <%= title %>
     </p>
-    <a href="/users">Entrar na lista de Usuários</a>
+    <a class="link-primary" href="/users">Entrar na lista de Usuários</a>
+    <a class="link-secondary" href="/categorias">Ver a lista de Categorias</a>
+    <a class="link-info" href="/produto">Ver produtos</a>
 </body>
 
 </html>
