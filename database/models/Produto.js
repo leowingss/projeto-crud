@@ -1,6 +1,8 @@
+const Categoria = require("./Categoria")
+
 module.exports = (sequelize, DataType) => {
-    const Usuario = sequelize.define('Produto', {
-        id: {
+    const Produto = sequelize.define('Produto', {
+        id_produto: {
             type: DataType.INTEGER,
             primaryKey: true,
             autoIncrement: true,
@@ -19,6 +21,13 @@ module.exports = (sequelize, DataType) => {
         tableName: 'produto',
         timestamps: false
     })
+
+    Produto.associate = (listaDeModelos) => {
+        Produto.belongsTo(listaDeModelos.Categoria, {
+            foreignKey: 'fk_categoria',
+            as: 'categoria'
+        })
+    }
 
     return Produto
 }
