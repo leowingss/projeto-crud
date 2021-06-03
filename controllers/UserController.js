@@ -9,11 +9,11 @@ const UserController = {
         const { page = 1 } = req.query
         const { count: total, rows: users } = await Usuario.findAndCountAll({
 
-            limit: 2,
-            offset: (page - 1) * 2
+            limit: 4,
+            offset: (page - 1) * 4
 
         })
-        const totalPagina = Math.round(total / 2)
+        const totalPagina = Math.round(total / 3)
         return res.render('usuarios', { users, totalPagina })
     },
 

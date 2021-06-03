@@ -8,9 +8,9 @@
     <title>Cadastro</title>
 </head>
 
-<body>
+<body class="p-3 mb-2 bg-light text-dark">
     <main class="container nt-4">
-        <form class="card p-3" action="/users/editar/<%=usuario.id%>?_method=PUT" method="POST">
+        <form class="card p-4" action="/users/editar/<%=usuario.id%>?_method=PUT" method="POST">
             <input type="hidden" name="_METHOD" value="PUT" />
             <div class="form-group">
                 <label for="nome">Nome</label>

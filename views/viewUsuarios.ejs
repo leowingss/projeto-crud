@@ -8,27 +8,27 @@
     <title>Informações Usuários</title>
 </head>
 
-<body>
+<body class="p-3 mb-2 bg-light text-dark">
 
     <main>
         <h1>Informações dos Usuários</h1>
-        <ul>
-            <li>Nome:
+        <ul class="list-group ">
+            <li class="list-group-item active " aria-current="true ">Nome:
                 <%= user.nome %>
             </li>
-            <li>Email:
+            <li class="list-group-item ">Email:
                 <%= user.email %>
             </li>
-            <li>
+            <li class="list-group-item ">
                 Status:
                 <%= user.status %>
             </li>
-            <li>
+            <li class="list-group-item ">
                 Senha:
                 <%= user.senha %>
             </li>
 
-            <li>
+            <li class="list-group-item ">
                 Sobrenome:
                 <%= user.sobrenome %>
             </li>
